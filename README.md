@@ -1,2 +1,2 @@
-# cyptopalschallenges
+# cryptopalschallenges
 Yippee! Fun challenges
