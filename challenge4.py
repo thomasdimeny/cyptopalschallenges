@@ -14,6 +14,7 @@ Find it.
 
 (Your code from #3 should help.)
 """
+import math
 
 
 # recycle scoring metric from challenge3, but improve it
@@ -89,11 +90,14 @@ frequencyTable = {
 # next, implement algorithm for fitting string to eatoin shrdl freq table, we'll be using chi^2
 def chiSquared(inputString, freqTable):
     sum = 0
+    tracking = {}
     for c in inputString:
-        observed = inputString.count(c) / len(inputString)
-        expected = freqTable[c]
-        chi_squared = ((observed - expected) ^ 2) / expected
-        sum += chi_squared
+        tracking[c] = 1
+        if c not in tracking:
+            observed = inputString.count(c) / len(inputString)
+            expected = freqTable[c]
+            chi_squared = ((observed - expected) ** 2) / expected
+            sum += chi_squared
 
     # x^2 = (Sum(observed_i -expected_i)^2)/ expected_i
     # expected_i % = frequency_table.at(expected_i) * encryptedString.length
