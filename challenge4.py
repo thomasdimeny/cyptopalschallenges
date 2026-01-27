@@ -57,8 +57,8 @@ for line in bestLines:
 # implement frequency table + least squares comparison with graph of input(s)
 # if graph of input is close to frequency table, then it is probably english
 frequencyTable = {
-    "E": 0.1270,
-    "T": 0.0906,
+    "e": 0.1270,
+    "t": 0.0906,
     "a": 0.0817,
     "o": 0.0751,
     "i": 0.0697,
@@ -86,17 +86,20 @@ frequencyTable = {
 }
 
 
-
-
-
 # next, implement algorithm for fitting string to eatoin shrdl freq table, we'll be using chi^2
-def chiSquared(inputString):
+def chiSquared(inputString, freqTable):
+    sum = 0
     for c in inputString:
-        
+        observed = inputString.count(c) / len(inputString)
+        expected = freqTable[c]
+        chi_squared = ((observed - expected) ^ 2) / expected
+        sum += chi_squared
+
     # x^2 = (Sum(observed_i -expected_i)^2)/ expected_i
     # expected_i % = frequency_table.at(expected_i) * encryptedString.length
     # observed_i % = # of occurrences of letter / length of string
 
     return
+
 
 # least sqaure implementation
