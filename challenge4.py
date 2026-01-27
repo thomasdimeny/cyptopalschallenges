@@ -86,4 +86,17 @@ frequencyTable = {
 }
 
 
+
+
+
+# next, implement algorithm for fitting string to eatoin shrdl freq table, we'll be using chi^2
+def chiSquared(inputString):
+    for c in inputString:
+        
+    # x^2 = (Sum(observed_i -expected_i)^2)/ expected_i
+    # expected_i % = frequency_table.at(expected_i) * encryptedString.length
+    # observed_i % = # of occurrences of letter / length of string
+
+    return
+
 # least sqaure implementation
